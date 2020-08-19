@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>HTML/CSS (LESS) Layout</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="page">
+    <div class="container">
+      <h1 class="page__heading">
+        Профиль рабочей группы
+      </h1>
+      <div class="page__description">
+        В данном разделе вы можете посмотреть и отредактировать информацию по своей рабочей группе, настроить права участников, расшарить настройки полностью или частично для других рабочих групп, а также сделать полную копию вашей рабочей группы с ограниченным доступом для тонкой настройки без публичных оповещений.
+      </div>
+
+      <form action="" class="profile-form">
+        <h3 class="profile-form__heading">Основная информация</h3>
+        <div class="alert-message  js-alert-message  alert-message--warning">
+          <div class="alert-message__heading">Внимание!</div>
+          <div class="alert-message__text">
+            <div>
+              Ваши данные сохранены в браузере, но не отправлены на сервер.<br/>
+              Нажмите кнопку “Отправить”, чтобы завершить редактирование.
+            </div>
+          </div>
+        </div>
+        <div class="profile-form__basic-fields">
+          <div class="profile-form__basic-fields-item">
+            <label class="field">
+              <input name="workgroup_title" type="text" class="field__input" data-validate="not_empty" placeholder="Моя новая рабочая группа">
+              <span class="field__caption">Название группы</span>
+              <span class="field__warning">
+                <span class="field__warning-text">Название не может быть пустым</span>
+              </span>
+              <i class="field__lines"></i>
+            </label>
+          </div>
+          <div class="profile-form__basic-fields-item">
+            <label class="field">
+              <input name="workgroup_alias" type="text" class="field__input" data-validate="alias" placeholder="my-new-workgroup">
+              <span class="field__caption">Алиас</span>
+              <span class="field__warning">
+                <span class="field__warning-text">
+                  Алиас не может содержать русские буквы и пробелы
+                </span>
+              </span>
+              <i class="field__lines"></i>
+            </label>
+          </div>
+          <div class="profile-form__basic-fields-item">
+            <label class="field">
+              <input name="email" type="text" class="field__input" data-validate="email" placeholder="email@site.domain">
+              <span class="field__caption">Электронная почта для обращений</span>
+              <span class="field__warning">
+                <span class="field__warning-text">
+                  Почта введена неверна
+                </span>
+              </span>
+              <i class="field__lines"></i>
+            </label>
+          </div>
+          <div class="profile-form__basic-fields-item">
+            <label class="field">
+              <input name="phone" type="tel" class="field__input" data-validate="not_empty" data-mask="+{7} (000) 000-00-00" placeholder="+7 (XXX) XXX-XX-XX">
+              <span class="field__caption">Телефон представителя</span>
+              <span class="field__warning">
+                <span class="field__warning-text">
+                  Неверный формат
+                </span>
+              </span>
+              <i class="field__lines"></i>
+            </label>
+          </div>
+          <div class="profile-form__basic-fields-item">
+            <label class="field">
+              <input name="fio" type="text" class="field__input" data-validate="not_empty" placeholder="Введите полные данные представителя">
+              <span class="field__caption">ФИО представителя</span>
+              <span class="field__warning">
+                <span class="field__warning-text">
+                  Поле не может быть пустым
+                </span>
+              </span>
+              <i class="field__lines"></i>
+            </label>
+          </div>
+          <div class="profile-form__basic-fields-item">
+            <label class="field">
+              <input name="precialization" type="text" class="field__input" data-validate="not_empty" placeholder="Введите полное наименование должности">
+              <span class="field__caption">Должность ответственного</span>
+              <span class="field__warning">
+                <span class="field__warning-text">
+                  Поле не может быть пустым
+                </span>
+              </span>
+              <i class="field__lines"></i>
+            </label>
+          </div>
+        </div>
+        <div class="profile-form__fields">
+          <div class="profile-form__fields-item">
+            <label class="field">
+              <textarea name="workgroup_desc_private" class="field__textarea" data-validate="not_empty" placeholder="Введите краткое и емкое описание"></textarea>
+              <span class="field__caption">Описание рабочей группы для внутреннего использования</span>
+              <span class="field__warning">
+                <span class="field__warning-text">
+                  Поле не может быть пустым
+                </span>
+              </span>
+              <i class="field__lines"></i>
+            </label>
+          </div>
+          <div class="profile-form__fields-item">
+            <label class="checkbox">
+              <input name="diff" type="checkbox" class="checkbox__input">
+              <i class="checkbox__icon"></i>
+              <span class="checkbox__text">Публичное описание отличается от внутреннего</span>
+            </label>
+          </div>
+          <div class="profile-form__fields-item">
+            <label class="field">
+              <textarea name="workgroup_desc_public" class="field__textarea" data-validate="not_empty" placeholder="Введите краткое и емкое описание"></textarea>
+              <span class="field__caption">Публичное описание рабочей группы</span>
+              <span class="field__warning">
+                <span class="field__warning-text">
+                  Поле не может быть пустым
+                </span>
+              </span>
+              <i class="field__lines"></i>
+            </label>
+          </div>
+        </div>
+        <div class="profile-form__buttons">
+          <div class="profile-form__buttons-item">
+            <button class="btn  btn--blue">Отправить на модерацию</button>
+          </div>
+          <div class="profile-form__buttons-item">
+            <button class="btn">Отмена</button>
+          </div>
+          <div class="profile-form__buttons-item  profile-form__buttons-item--pushed-to-right">
+            <button class="btn  btn--disabled">Сохранить в мои черновики</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="dist/main.js"></script>
+</body>
+</html>
